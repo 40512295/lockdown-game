@@ -8,6 +8,14 @@ body{
     text-align: center;
     color: cornsilk;
 }
+.boxCss{
+    background-color: #087ca7;
+    margin:10px;
+    padding:5px;
+}
+.boxCss:hover{
+    background-color: #4f96b0;
+}
 
 .centerCss{
     display: flex;
@@ -32,21 +40,13 @@ body{
 
 .cheapBoxCss{
     order: 1;
-    background-color: #087ca7;
-    margin:10px;
-    padding:5px;
+    
 }
 .mediumBoxCss{
     order: 2;
-    background-color: #087ca7;
-    margin:10px;
-    padding:5px;
 }
 .expensiveBoxCss{
     order: 3;
-    background-color: #087ca7;
-    margin:10px;
-    padding:5px;
 }
 
 
@@ -63,21 +63,12 @@ body{
 }
 .firstSkillCss{
     order: 1;
-    background-color: #087ca7;
-    margin:10px;
-    padding:5px;
 }
 .secondSkillCss{
     order: 2;
-    background-color: #087ca7;
-    margin:10px;
-    padding:5px;
 }
 .thirdSkillCss{
     order: 3;
-    background-color: #087ca7;
-    margin:10px;
-    padding:5px;
 }
 
 
