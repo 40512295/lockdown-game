@@ -8,6 +8,7 @@ function createJsonCache(){
                 "energy":100,
                 "mental":100,
                 "duration":0,
+                "selectedPlan":"cheap",
                 "abilityLvl":{
                     "social":0,
                     "computer":0,
@@ -31,7 +32,6 @@ function createJsonCache(){
                 "worker_1":false,
                 "worker_2":false
             },
-            "selectedPlan":"cheap",
             "refView":"none"
         },
         "info":{
@@ -232,7 +232,6 @@ function createJsonCache(){
         "stealth":false,
         "worker":false
     }; 
-    file['userStats']['stats']['selectedPlan'] = "cheap";
     var fileString = JSON.stringify(file);
     var awardfileString = JSON.stringify(awardFile);
     localStorage.setItem('cookieLOCKDOWNGAME',fileString);

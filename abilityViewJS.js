@@ -13,6 +13,7 @@ function changeLevel(ability,newlvl){
 
 function loadDataBeginning(){
     var jsonData = loadJSON();
+    var jsonWithSelectedPlan = jsonData['info']['foodPlan'][jsonData['userStats']['stats']['selectedPlan']];
     var nameOfAbility = jsonData['userStats']['refView'];
     var jsonSubAbility = jsonData['info']['ability'][nameOfAbility];
     var listName = ["firstSkill","secondSkill","thirdSkill"];
@@ -22,19 +23,19 @@ function loadDataBeginning(){
 
     //learn menu : 
     //cheap
-    document.getElementById("cheapMoney").innerHTML = "Money : "+ jsonData['info']['learn']['cheap']['money'] +"$";
-    document.getElementById("cheapMentHealth").innerHTML = "Mental Health : "+ jsonData['info']['learn']['cheap']['mental'];
-    document.getElementById("cheapEnergy").innerHTML = "Energy : "+ jsonData['info']['learn']['cheap']['energy'];
+    document.getElementById("cheapMoney").innerHTML = "Money : "+ (jsonData['info']['learn']['cheap']['money'] +jsonWithSelectedPlan['money']*jsonData['info']['learn']['cheap']['duration'] +14)+"$";
+    document.getElementById("cheapMentHealth").innerHTML = "Mental Health : "+ (jsonData['info']['learn']['cheap']['mental'] +jsonWithSelectedPlan['mental']*jsonData['info']['learn']['cheap']['duration']);
+    document.getElementById("cheapEnergy").innerHTML = "Energy : "+ (jsonData['info']['learn']['cheap']['energy'] +jsonWithSelectedPlan['energy']*jsonData['info']['learn']['cheap']['duration']);
     document.getElementById("cheapDuration").innerHTML = "Duration : " + jsonData['info']['learn']['cheap']['duration']+" Day";
     //medium
-    document.getElementById("mediumMoney").innerHTML = "Money : "+ jsonData['info']['learn']['medium']['money'] +"$";
-    document.getElementById("mediumMentHealth").innerHTML = "Mental Health : "+ jsonData['info']['learn']['medium']['mental'];
-    document.getElementById("mediumEnergy").innerHTML = "Energy : "+ jsonData['info']['learn']['medium']['energy'];
+    document.getElementById("mediumMoney").innerHTML = "Money : "+ (jsonData['info']['learn']['medium']['money'] +jsonWithSelectedPlan['money']*jsonData['info']['learn']['medium']['duration'] +14)+"$";
+    document.getElementById("mediumMentHealth").innerHTML = "Mental Health : "+ (jsonData['info']['learn']['medium']['mental'] +jsonWithSelectedPlan['mental']*jsonData['info']['learn']['medium']['duration']);
+    document.getElementById("mediumEnergy").innerHTML = "Energy : "+ (jsonData['info']['learn']['medium']['energy'] +jsonWithSelectedPlan['energy']*jsonData['info']['learn']['medium']['duration']);
     document.getElementById("mediumDuration").innerHTML = "Duration : " + jsonData['info']['learn']['medium']['duration']+" Day";
     //expensive
-    document.getElementById("expensiveMoney").innerHTML = "Money : "+ jsonData['info']['learn']['expensive']['money'] +"$";
-    document.getElementById("expensiveMentHealth").innerHTML = "Mental Health : "+ jsonData['info']['learn']['expensive']['mental'];
-    document.getElementById("expensiveEnergy").innerHTML = "Energy : "+ jsonData['info']['learn']['expensive']['energy'];
+    document.getElementById("expensiveMoney").innerHTML = "Money : "+ (jsonData['info']['learn']['expensive']['money'] +jsonWithSelectedPlan['money']*jsonData['info']['learn']['expensive']['duration']+14)+"$";
+    document.getElementById("expensiveMentHealth").innerHTML = "Mental Health : "+ (jsonData['info']['learn']['expensive']['mental']+jsonWithSelectedPlan['mental']*jsonData['info']['learn']['expensive']['duration']);
+    document.getElementById("expensiveEnergy").innerHTML = "Energy : "+ (jsonData['info']['learn']['expensive']['energy']+jsonWithSelectedPlan['energy']*jsonData['info']['learn']['expensive']['duration']);
     document.getElementById("expensiveDuration").innerHTML = "Duration : " + jsonData['info']['learn']['expensive']['duration']+" Day";
     //hide
     document.getElementById("firstSkill").style.visibility = ("hidden");
@@ -78,30 +79,31 @@ function learnAbility(id){
     jsonData["userStats"]["recapStats"]["money"] += 14;
     //stat
     jsonData["userStats"]["stats"]["money"] += jsonData["info"][categorie][id]["money"];
-    jsonData["userStats"]["stats"]["hygiene"] += jsonData["info"][categorie][id]["hygiene"];
+    //jsonData["userStats"]["stats"]["hygiene"] += jsonData["info"][categorie][id]["hygiene"];
     jsonData["userStats"]["stats"]["energy"] += jsonData["info"][categorie][id]["energy"];
     jsonData["userStats"]["stats"]["mental"] += jsonData["info"][categorie][id]["mental"];
     jsonData["userStats"]["stats"]["duration"] += jsonData["info"][categorie][id]["duration"];
     //recap
     jsonData["userStats"]["recapStats"]["money"] += jsonData["info"][categorie][id]["money"];
-    jsonData["userStats"]["recapStats"]["hygiene"] += jsonData["info"][categorie][id]["hygiene"];
+    //jsonData["userStats"]["recapStats"]["hygiene"] += jsonData["info"][categorie][id]["hygiene"];
     jsonData["userStats"]["recapStats"]["energy"] += jsonData["info"][categorie][id]["energy"];
     jsonData["userStats"]["recapStats"]["mental"] += jsonData["info"][categorie][id]["mental"];
     jsonData["userStats"]["recapStats"]["duration"] += jsonData["info"][categorie][id]["duration"];
     //actionRef
     jsonData["userStats"]["recapStats"]["refAction"] = jsonData["info"][categorie][id]["refAction"];
     //foodPlan
-    var food = jsonData["userStats"]["selectedPlan"];
+    var food = jsonData['userStats']['stats']['selectedPlan'];
     //stat
-    jsonData["userStats"]["stats"]["money"] += jsonData["info"]["foodPlan"][food]["money"];
-    jsonData["userStats"]["stats"]["hygiene"] += jsonData["info"]["foodPlan"][food]["hygiene"];
-    jsonData["userStats"]["stats"]["energy"] += jsonData["info"]["foodPlan"][food]["energy"];
-    jsonData["userStats"]["stats"]["mental"] += jsonData["info"]["foodPlan"][food]["mental"];
+    jsonData["userStats"]["stats"]["money"] += jsonData["info"]["foodPlan"][food]["money"]*jsonData["userStats"]["recapStats"]["duration"];
+    jsonData["userStats"]["stats"]["hygiene"] += jsonData["info"]["foodPlan"][food]["hygiene"]*jsonData["userStats"]["recapStats"]["duration"];
+    jsonData["userStats"]["stats"]["energy"] += jsonData["info"]["foodPlan"][food]["energy"]*jsonData["userStats"]["recapStats"]["duration"];
+    jsonData["userStats"]["stats"]["mental"] += jsonData["info"]["foodPlan"][food]["mental"]*jsonData["userStats"]["recapStats"]["duration"];
     //recap
-    jsonData["userStats"]["recapStats"]["money"] += jsonData["info"]["foodPlan"][food]["money"];
-    jsonData["userStats"]["recapStats"]["hygiene"] += jsonData["info"]["foodPlan"][food]["hygiene"];
-    jsonData["userStats"]["recapStats"]["energy"] += jsonData["info"]["foodPlan"][food]["energy"];
-    jsonData["userStats"]["recapStats"]["mental"] += jsonData["info"]["foodPlan"][food]["mental"];
+    jsonData["userStats"]["recapStats"]["money"] += jsonData["info"]["foodPlan"][food]["money"]*jsonData["userStats"]["recapStats"]["duration"];
+    jsonData["userStats"]["recapStats"]["hygiene"] += jsonData["info"]["foodPlan"][food]["hygiene"]*jsonData["userStats"]["recapStats"]["duration"];
+    console.log(jsonData["info"]["foodPlan"][food]["hygiene"]+"/"+jsonData["userStats"]["recapStats"]["duration"]+"/"+jsonData["info"]["foodPlan"][food]["hygiene"]*jsonData["userStats"]["recapStats"]["duration"]);
+    jsonData["userStats"]["recapStats"]["energy"] += jsonData["info"]["foodPlan"][food]["energy"]*jsonData["userStats"]["recapStats"]["duration"];
+    jsonData["userStats"]["recapStats"]["mental"] += jsonData["info"]["foodPlan"][food]["mental"]*jsonData["userStats"]["recapStats"]["duration"];
 
     saveJSON(jsonData);
     window.location.href="dayRecapView.html";
@@ -129,17 +131,19 @@ function useAbility(skillNb){
     //actionRef
     jsonData["userStats"]["recapStats"]["refAction"] = jsonSubAbility["active"][skillNb]["refAction"];
     //foodPlan
-    var food = jsonData["userStats"]["selectedPlan"];
+    var food = jsonData['userStats']['stats']['selectedPlan'];
     //stat
-    jsonData["userStats"]["stats"]["money"] += jsonData["info"]["foodPlan"][food]["money"];
-    jsonData["userStats"]["stats"]["hygiene"] += jsonData["info"]["foodPlan"][food]["hygiene"];
-    jsonData["userStats"]["stats"]["energy"] += jsonData["info"]["foodPlan"][food]["energy"];
-    jsonData["userStats"]["stats"]["mental"] += jsonData["info"]["foodPlan"][food]["mental"];
+    jsonData["userStats"]["stats"]["money"] += jsonData["info"]["foodPlan"][food]["money"]*jsonData["userStats"]["recapStats"]["duration"];
+    jsonData["userStats"]["stats"]["hygiene"] += jsonData["info"]["foodPlan"][food]["hygiene"]*jsonData["userStats"]["recapStats"]["duration"];
+    jsonData["userStats"]["stats"]["energy"] += jsonData["info"]["foodPlan"][food]["energy"]*jsonData["userStats"]["recapStats"]["duration"];
+    jsonData["userStats"]["stats"]["mental"] += jsonData["info"]["foodPlan"][food]["mental"]*jsonData["userStats"]["recapStats"]["duration"];
     //recap
-    jsonData["userStats"]["recapStats"]["money"] += jsonData["info"]["foodPlan"][food]["money"];
-    jsonData["userStats"]["recapStats"]["hygiene"] += jsonData["info"]["foodPlan"][food]["hygiene"];
-    jsonData["userStats"]["recapStats"]["energy"] += jsonData["info"]["foodPlan"][food]["energy"];
-    jsonData["userStats"]["recapStats"]["mental"] += jsonData["info"]["foodPlan"][food]["mental"];
+    jsonData["userStats"]["recapStats"]["money"] += jsonData["info"]["foodPlan"][food]["money"]*jsonData["userStats"]["recapStats"]["duration"];
+    jsonData["userStats"]["recapStats"]["hygiene"] += jsonData["info"]["foodPlan"][food]["hygiene"]*jsonData["userStats"]["recapStats"]["duration"];
+    console.log(jsonData["info"]["foodPlan"][food]["hygiene"]+"/"+jsonData["userStats"]["recapStats"]["duration"]+"/"+jsonData["info"]["foodPlan"][food]["hygiene"]*jsonData["userStats"]["recapStats"]["duration"]);
+    jsonData["userStats"]["recapStats"]["energy"] += jsonData["info"]["foodPlan"][food]["energy"]*jsonData["userStats"]["recapStats"]["duration"];
+    jsonData["userStats"]["recapStats"]["mental"] += jsonData["info"]["foodPlan"][food]["mental"]*jsonData["userStats"]["recapStats"]["duration"];
+
 
     
     if(nameOfAbility == "computer" && skillNb == 0){

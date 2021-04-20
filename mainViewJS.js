@@ -13,26 +13,27 @@ function changeLevel(ability,newlvl){
 function loadDataBeginning(){
     checkPassiveActivated();
     var jsonData = loadJSON();
+    var jsonWithSelectedPlan = jsonData['info']['foodPlan'][jsonData['userStats']['stats']['selectedPlan']];
     //goOut
-    document.getElementById("goOutMoney").innerHTML = "Money : "+ jsonData['info']['basic']['outside']['money'] +"$";
-    document.getElementById("goOutMentHealth").innerHTML = "Mental Health : "+ jsonData['info']['basic']['outside']['mental'];
-    document.getElementById("goOutHygiene").innerHTML = "Hygiene : "+ jsonData['info']['basic']['outside']['hygiene'];
-    document.getElementById("goOutEnergy").innerHTML = "Energy : "+ jsonData['info']['basic']['outside']['energy'];
+    document.getElementById("goOutMoney").innerHTML = "Money : "+ (jsonData['info']['basic']['outside']['money'] +jsonWithSelectedPlan['money'] +14) +"$";
+    document.getElementById("goOutMentHealth").innerHTML = "Mental Health : "+ (jsonData['info']['basic']['outside']['mental']+jsonWithSelectedPlan['mental']);
+    document.getElementById("goOutHygiene").innerHTML = "Hygiene : "+ (jsonData['info']['basic']['outside']['hygiene']+jsonWithSelectedPlan['hygiene']);
+    document.getElementById("goOutEnergy").innerHTML = "Energy : "+ (jsonData['info']['basic']['outside']['energy']+jsonWithSelectedPlan['energy']);
     //workout
-    document.getElementById("workMoney").innerHTML = "Money : "+ jsonData['info']['basic']['workout']['money'] +"$";
-    document.getElementById("workMentHealth").innerHTML = "Mental Health : "+ jsonData['info']['basic']['workout']['mental'];
-    document.getElementById("workHygiene").innerHTML = "Hygiene : "+ jsonData['info']['basic']['workout']['hygiene'];
-    document.getElementById("workEnergy").innerHTML = "Energy : "+ jsonData['info']['basic']['workout']['energy'];
+    document.getElementById("workMoney").innerHTML = "Money : "+ (jsonData['info']['basic']['workout']['money']+jsonWithSelectedPlan['money']+14) +"$";
+    document.getElementById("workMentHealth").innerHTML = "Mental Health : "+ (jsonData['info']['basic']['workout']['mental']+jsonWithSelectedPlan['mental']);
+    document.getElementById("workHygiene").innerHTML = "Hygiene : "+ (jsonData['info']['basic']['workout']['hygiene']+jsonWithSelectedPlan['hygiene']);
+    document.getElementById("workEnergy").innerHTML = "Energy : "+ (jsonData['info']['basic']['workout']['energy']+jsonWithSelectedPlan['energy']);
     //shower
-    document.getElementById("showerMoney").innerHTML = "Money : "+ jsonData['info']['basic']['shower']['money'] +"$";
-    document.getElementById("showerMentHealth").innerHTML = "Mental Health : "+ jsonData['info']['basic']['shower']['mental'];
-    document.getElementById("showerHygiene").innerHTML = "Hygiene : "+ jsonData['info']['basic']['shower']['hygiene'];
-    document.getElementById("showerEnergy").innerHTML = "Energy : "+ jsonData['info']['basic']['shower']['energy'];
+    document.getElementById("showerMoney").innerHTML = "Money : "+ (jsonData['info']['basic']['shower']['money']+jsonWithSelectedPlan['money']+14) +"$";
+    document.getElementById("showerMentHealth").innerHTML = "Mental Health : "+ (jsonData['info']['basic']['shower']['mental']+jsonWithSelectedPlan['mental']);
+    document.getElementById("showerHygiene").innerHTML = "Hygiene : "+ (jsonData['info']['basic']['shower']['hygiene']+jsonWithSelectedPlan['hygiene']);
+    document.getElementById("showerEnergy").innerHTML = "Energy : "+ (jsonData['info']['basic']['shower']['energy']+jsonWithSelectedPlan['energy']);
     //TV
-    document.getElementById("watchMoney").innerHTML = "Money : "+ jsonData['info']['basic']['watch']['money'] +"$";
-    document.getElementById("watchMentHealth").innerHTML = "Mental Health : "+ jsonData['info']['basic']['watch']['mental'];
-    document.getElementById("watchHygiene").innerHTML = "Hygiene : "+ jsonData['info']['basic']['watch']['hygiene'];
-    document.getElementById("watchEnergy").innerHTML = "Energy : "+ jsonData['info']['basic']['watch']['energy'];
+    document.getElementById("watchMoney").innerHTML = "Money : "+(jsonData['info']['basic']['watch']['money']+jsonWithSelectedPlan['money']+14) +"$";
+    document.getElementById("watchMentHealth").innerHTML = "Mental Health : "+ (jsonData['info']['basic']['watch']['mental']+jsonWithSelectedPlan['mental']);
+    document.getElementById("watchHygiene").innerHTML = "Hygiene : "+ (jsonData['info']['basic']['watch']['hygiene']+jsonWithSelectedPlan['hygiene']);
+    document.getElementById("watchEnergy").innerHTML = "Energy : "+ (jsonData['info']['basic']['watch']['energy']+jsonWithSelectedPlan['energy']);
     //Date
     document.getElementById("date").innerHTML = "Day number : "+ jsonData['userStats']['stats']['duration'];
     //Money 
@@ -264,7 +265,7 @@ function drawPieChart(id,name,pourcentChange,couleur){
           legend: 'none',
           pieSliceText: 'none',
           backgroundColor: 'black',
-          pieStartAngle: 135,
+          pieStartAngle: 0,
           tooltip: { trigger: 'none' },
           slices: {
             0: { color: couleur },
@@ -290,7 +291,7 @@ function checkPourcent(int){
 }
 
 
-function move(max,barName) {
+function move(max,barName) { //https://www.w3schools.com/howto/howto_js_progressbar.asp
     var i = 0;
     if (i == 0) {
         i = 1;
