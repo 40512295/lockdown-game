@@ -103,6 +103,7 @@ function loadDataBeginning(){
             //computer hack gouv : win
             statmentP = "You hack into the government and uncover a plot. The government is at the origin of the virus and already has a cure. Its goal: lock up the population to stop the demonstrations against the government.";
             urlImage = "./image/hack.jpg";
+            jsonData["userStats"]["recapStats"]["refAction"] = -107;
         break;
         case 8:
             //taichi : win
