@@ -1,0 +1,29 @@
+body{
+    text-align:center;
+    background-color: black;
+    color: white;
+}
+.title{
+    text-align: center;
+    color: cornsilk;
+}
+
+.centerView{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.recapBoxCss{
+    order: 1;
+    background-color: #033860;
+    margin:10px;
+    padding:5px;
+}
+.imageCss{
+    order: 2;
+    margin:10px;
+    padding:5px;
+    width: 30%;
+}

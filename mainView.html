@@ -1,0 +1,118 @@
+<!DOCTYPE html >
+<html>
+    <head>
+        <title>LockdownGame</title>
+        <link rel="stylesheet" href="mainViewCss.css" type="text/css">
+        <script src="mainViewJS.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    </head>
+    <body onload="loadDataBeginning()">
+        <h1 class="title" id="pageTitle">LOCKDOWN GAME</h1>
+        <div class="centerViewMain">
+            <div class="centerViewMainAbilityBox">
+                <h3>Ability</h3>
+                <div onclick="gotoAbilityView('social')" id="socialInteractionAbility" class="innerAbilityBox">
+                    <h4>Social Interaction</h4>
+                    <div class="progressBarBackground" id="socialProgress">
+                        <div class="progressBarForeground" id="socialBar"></div>
+                    </div>
+                </div>
+                <div onclick="gotoAbilityView('computer')" id="computerScienceAbility" class="innerAbilityBox">
+                    <h4>Computer Science</h4>
+                    <div class="progressBarBackground" id="computerProgress">
+                        <div class="progressBarForeground" id="computerBar"></div>
+                    </div>
+                </div>
+                <div onclick="gotoAbilityView('stealth')" id="StealthAbility" class="innerAbilityBox">
+                    <h4>Stealth</h4>
+                    <div class="progressBarBackground" id="stealthProgress">
+                        <div class="progressBarForeground" id="stealthBar"></div>
+                    </div>
+                </div>
+                <div onclick="gotoAbilityView('taichi')" id="taiChiAbility" class="innerAbilityBox">
+                    <h4>Tai Chi</h4>
+                    <div class="progressBarBackground" id="taichiProgress">
+                        <div class="progressBarForeground" id="taichiBar"></div>
+                    </div>
+                </div>
+                <div onclick="gotoAbilityView('worker')" id="workerAbility" class="innerAbilityBox">
+                    <h4>Worker</h4>
+                    <div class="progressBarBackground" id="workerProgress">
+                        <div class="progressBarForeground" id="workerBar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="centerViewMainId">
+                <div class="pourcent1Css" id="hygieneChart" style="width: 100px; height: 100px"></div>
+                <p class="pourcent2Css"><u>Hygiene</u></p>
+                <div class="pourcent3Css" id="mentalChart" style="width: 100px; height: 100px"></div>
+                <p class="pourcent4Css"><u>Mental Health</u></p>
+                <div class="pourcent5Css" id="energieChart" style="width: 100px; height: 100px"></div>
+                <p class="pourcent6Css"><u>Energy</u></p>
+            </div>
+            <div class="centerViewMainImage">
+                <img src="./image/room.gif" alt="">
+            </div>
+            <div class="centerViewMainRightSide">
+                <div class="rightSideUp">
+                    <div class="rightSideUpInnerLeft">
+                        <h4><u>Date :</u></h4>
+                        <p id="date">dd/MM/yyyy</p>
+                    </div>
+                    <div class="rightSideUpInnerRight">
+                        <h4><u>Money :</u></h4>
+                        <p id="amountMoneyTotal">Total : 1000$</p>
+                        <p id="amountMoneyPerDay">Earn/Day : 14$</p>
+                    </div>
+                </div>
+                <div class="rightSideDown">
+                    <div class="rightSideDownInnerLeft">
+                        <h4><u>Food Plan :</u></h4>
+                        <p id="foodPlanCheap" onclick="onFoodPlanChange('foodPlanCheap')" >Cheap</p>
+                        <p id="foodPlanMedium" onclick="onFoodPlanChange('foodPlanMedium')">Medium</p>
+                        <p id="foodPlanExpensive" onclick="onFoodPlanChange('foodPlanExpensive')">Expensive</p>
+                    </div>
+                    <div class="rightSideDownInnerRight">
+                        <h4 id="foodPlanTitle">Cheap</h4>
+                        <p id="foodPlanMoney">Money : -12$</p>
+                        <p id="foodPlanMental">Mental Health : -11</p>
+                        <p id="foodPlanHygiene">Hygiene : -10</p>
+                        <p id="foodPlanEnergy">Energy : +4</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="activityLableMainCss">
+            <div class="activityLableMainBoxCss" onclick="basicActivity('outside')">
+                <h3><u>Go out</u></h3>
+                <p id="goOutMoney">Money : 1000$</p>
+                <p id="goOutMentHealth">Mental Health : +100</p>
+                <p id="goOutHygiene">Hygiene : -10</p>
+                <p id="goOutEnergy">Energy : -25</p>
+            </div>
+            <div class="activityLableMainBoxCss" onclick="basicActivity('workout')">
+                <h3><u>Work out</u></h3>
+                <p id="workMoney">Money : -50$</p>
+                <p id="workMentHealth">Mental Health : +100</p>
+                <p id="workHygiene">Hygiene : -10</p>
+                <p id="workEnergy">Energy : -50</p>
+            </div>
+            <div class="activityLableMainBoxCss" onclick="basicActivity('shower')"> 
+                <h3><u>Shower</u></h3>
+                <p id="showerMoney">Money : -50$</p>
+                <p id="showerMentHealth">Mental Health : 0</p>
+                <p id="showerHygiene">Hygiene : +100</p>
+                <p id="showerEnergy">Energy : +15</p>
+            </div>
+            <div class="activityLableMainBoxCss" onclick="basicActivity('watch')">
+                <h3><u>Watch tv</u></h3>
+                <p id="watchMoney">Money : 0$</p>
+                <p id="watchMentHealth">Mental Health : -5</p>
+                <p id="watchHygiene">Hygiene : -5</p>
+                <p id="watchEnergy">Energy : 0</p>
+            </div>
+        </div>
+        
+
+    </body>
+</html>

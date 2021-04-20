@@ -1,0 +1,151 @@
+
+
+
+body{
+    text-align:center;
+    background-color: black;
+
+}
+.title{
+    text-align: center;
+    color: cornsilk;
+}
+
+.activityLableMainBoxCss h3{
+    text-align: center;
+}
+
+
+.activityLableMainBoxCss{ 
+    background-color: #492170;
+    color:white;
+    text-align: justify;
+    width:20%;
+    padding:5px;
+    margin:10px;
+    border:0px solid #000;
+    display: inline-block;
+    
+}
+
+
+.centerViewMain{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.centerViewMainAbilityBox{
+    order: 1;
+    background-color: #033860;
+    margin:10px;
+    padding:5px;
+    width: 15%;
+}
+
+.innerAbilityBox{
+    background-color: #087ca7;
+}
+
+.centerViewMainId{
+    order: 2;
+    color: white;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.pourcent1Css{
+    order: 1;
+}
+.pourcent2Css{
+    order: 2;
+}
+.pourcent3Css{
+    order: 3;
+}
+.pourcent4Css{
+    order: 4;
+}
+.pourcent5Css{
+    order: 5;
+}
+.pourcent6Css{
+    order: 6;
+}
+
+.centerViewMainImage{
+    order: 3;
+    width: 30%;
+}
+.centerViewMainImage img{
+    width: 100%;
+}
+.centerViewMainRightSide{
+    order: 4;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+.rightSideUp{
+    order: 1;
+    background-color: #033860;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    border: 1px solid black;
+}
+.rightSideUpInnerLeft{
+    order: 1;
+    margin: auto;
+    text-align: left;
+}
+.rightSideUpInnerRight{
+    order: 2;
+    margin: auto;
+    text-align: right;
+}
+.rightSideDown{
+    order: 2;
+    background-color: #033860;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+.rightSideDownInnerLeft{
+    order: 1;
+    margin: auto;
+}
+.rightSideDownInnerLeft p{
+    border: 1px solid black;
+    padding: auto;
+}
+
+.rightSideDownInnerRight{
+    order: 2;
+    margin: auto;
+}
+
+.progressBarBackground{
+    width: 100%;
+    height: 30px;
+    background-color: grey;
+}
+.progressBarForeground{
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
+
