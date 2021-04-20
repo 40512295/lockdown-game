@@ -237,5 +237,7 @@ function createJsonCache(){
     var awardfileString = JSON.stringify(awardFile);
     localStorage.setItem('cookieLOCKDOWNGAME',fileString);
     localStorage.setItem('awardLOCKDOWNGAME',awardfileString);
-    document.getElementById("button").style.visibility = "visible";     
+    document.getElementById("button").style.visibility = "visible";
+    
+    
 }

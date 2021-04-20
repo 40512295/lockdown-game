@@ -154,7 +154,7 @@ function checkFunction(){
     var jsonData = loadJSON();
     
     if(jsonData["userStats"]["recapStats"]["refAction"] < 0){
-        window.location.href='beginningView.html'
+        window.location.href='index.html'
     }
     else{
         window.location.href='mainView.html'
