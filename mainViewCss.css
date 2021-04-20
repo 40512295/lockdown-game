@@ -1,14 +1,22 @@
-
-
-
+@font-face {
+    font-family: Title;
+   src: url("./police/mrsmonster.ttf");
+}
+@font-face {
+    font-family: TextBody;
+    src: url("./police/Humongous\ of\ Eternity\ St.ttf");
+}
 body{
     text-align:center;
     background-color: black;
-
+    font-family:TextBody;
+    font-size: 12px;
 }
 .title{
     text-align: center;
     color: cornsilk;
+    font-family: Title;
+    font-size: 50px;
 }
 
 .activityLableMainBoxCss h3{
@@ -102,7 +110,7 @@ body{
 }
 .rightSideUp{
     order: 1;
-    background-color: #033860;
+    background-color: #087ca7;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -122,7 +130,7 @@ body{
 }
 .rightSideDown{
     order: 2;
-    background-color: #033860;
+    background-color: #087ca7;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

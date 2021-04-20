@@ -207,7 +207,8 @@ function basicActivity(id){
     //actionRef
     jsonData["userStats"]["recapStats"]["refAction"] = jsonData["info"]["basic"][id]["refAction"];
     //foodPlan
-    var food = jsonData["userStats"]["selectedPlan"];
+    var food = jsonData["userStats"]["stats"]["selectedPlan"];
+    console.log(food);
     //stat
     jsonData["userStats"]["stats"]["money"] += jsonData["info"]["foodPlan"][food]["money"];
     jsonData["userStats"]["stats"]["hygiene"] += jsonData["info"]["foodPlan"][food]["hygiene"];
@@ -230,7 +231,7 @@ function basicActivity(id){
     }
     
     saveJSON(jsonData);
-    window.location.href="dayRecapView.html";
+    window.location.href="./dayRecapView.html";
 }
 function gotoAbilityView(key){
     var jsonData = loadJSON();

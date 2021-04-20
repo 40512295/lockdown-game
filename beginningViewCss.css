@@ -1,10 +1,22 @@
+@font-face {
+    font-family: Title;
+   src: url("./police/mrsmonster.ttf");
+}
+@font-face {
+    font-family: TextBody;
+    src: url("./police/Humongous\ of\ Eternity\ St.ttf");
+}
 body{
     text-align:center;
     background-color: black;
+    font-family:TextBody;
+    font-size: 16px;
 }
 .title{
     text-align: center;
     color: cornsilk;
+    font-family: Title;
+    font-size: 50px;
 }
 .text{
     color: white;
