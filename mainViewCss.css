@@ -27,6 +27,9 @@ body{
     display: inline-block;
     
 }
+.activityLableMainBoxCss:hover{
+    background-color: #634a7c;
+}
 
 
 .centerViewMain{
@@ -47,6 +50,9 @@ body{
 
 .innerAbilityBox{
     background-color: #087ca7;
+}
+.innerAbilityBox:hover{
+    background-color: #4f96b0;
 }
 
 .centerViewMainId{
@@ -130,6 +136,10 @@ body{
 }
 .rightSideDownInnerLeft p{
     border: 1px solid black;
+    padding: auto;
+}
+.rightSideDownInnerLeft p:hover{
+    border: 3px solid black;
     padding: auto;
 }
 
