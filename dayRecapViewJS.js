@@ -14,7 +14,7 @@ function loadDataBeginning(){
     if(checkBellowZero(jsonData)){
         //dead
         console.log("bellow zero");
-        jsonData["userStats"]["recapStats"]["refAction"] = -1;
+        jsonData["userStats"]["recapStats"]["refAction"] = -100;
     }
     else if(jsonData["userStats"]["stats"]["duration"]>=182){
         //win end of confinment
@@ -22,6 +22,11 @@ function loadDataBeginning(){
         jsonData = returnWhenBellowZero(jsonData);
     }
     switch(jsonData["userStats"]["recapStats"]["refAction"]){
+        case -100:
+            statmentP = "Well done, you survived until the end of the lockdown !!! Life is finally resuming its normal course.";
+            urlImage = "./image/openlock.png";
+            newAward("endLockdown");
+        break;
         case -8:
             //dead caught outside
             statmentP = "You get arrested by the police for not respecting the lockdown. The government hangs you.";
@@ -87,6 +92,8 @@ function loadDataBeginning(){
             statmentP = "Your popularity is exploding! The people support you and reverse the government with you. You are crowned and reign over the country.";
             urlImage = "./image/king.jpg";
             jsonData["userStats"]["recapStats"]["refAction"] = -104;
+            newAward("social");
+           
         break;
         case 5:
             //computer : make video
@@ -104,12 +111,14 @@ function loadDataBeginning(){
             statmentP = "You hack into the government and uncover a plot. The government is at the origin of the virus and already has a cure. Its goal: lock up the population to stop the demonstrations against the government.";
             urlImage = "./image/hack.jpg";
             jsonData["userStats"]["recapStats"]["refAction"] = -107;
+            newAward("computer");
         break;
         case 8:
             //taichi : win
             statmentP = "You have finally understood the world. A great power summerge you which allows you to change the world. You decide to remove the virus which leads to the end of the lockdown.";
             urlImage = "./image/taichi.jpg";
             jsonData["userStats"]["recapStats"]["refAction"] = -108;
+            newAward("taichi");
         break;
         case 9:
             //stealth : steal
@@ -121,12 +130,14 @@ function loadDataBeginning(){
             statmentP = "You are fed up with your country and you decide to run away. In your country, there is no virus or dictatorship. It is paradise.";
             urlImage = "./image/plane.jpg";
             jsonData["userStats"]["recapStats"]["refAction"] = -110;
+            newAward("stealth")
         break;
         case 11:
             //worker : win : find cure
             statmentP = "After days of hard work you found miracle cure that eradicated the virus.";
             urlImage = "./image/cure.png";
             jsonData["userStats"]["recapStats"]["refAction"] = -111;
+            newAward("worker");
         break;
         case 12:
             //learn cheap
@@ -191,5 +202,12 @@ function loadJSON(){
 }
 function saveJSON(jsonData){
     localStorage.setItem('cookieLOCKDOWNGAME',JSON.stringify(jsonData));
+}
+
+function newAward(id){
+    var jsonAward = JSON.parse(localStorage.getItem('awardLOCKDOWNGAME'));
+    jsonAward[id]=true;
+    console.log(id +" "+jsonAward[id]);
+    localStorage.setItem('awardLOCKDOWNGAME',JSON.stringify(jsonAward));
 }
 

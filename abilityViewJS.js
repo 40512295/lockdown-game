@@ -181,7 +181,7 @@ function hackPeople(jsonData){
     jsonData["userStats"]["recapStats"]["money"] += moneyMade;
 
     if(gotCaught(jsonData["userStats"]["stats"]["abilityLvl"]["computer"])){
-        jsonData["userStats"]["recapStats"]["refAction"] =-1;
+        jsonData["userStats"]["recapStats"]["refAction"] =-7;
     }
 
     return jsonData;
@@ -196,12 +196,13 @@ function stealPeople(jsonData){
     jsonData["userStats"]["recapStats"]["money"] += moneyMade;
 
     if(gotCaught(jsonData["userStats"]["stats"]["abilityLvl"]["stealth"])){
-        jsonData["userStats"]["recapStats"]["refAction"] =-1;
+        jsonData["userStats"]["recapStats"]["refAction"] =-6;
     }
 
     return jsonData;
 }
 
 function gotCaught(lvl){
-    return false
+    var caughtUnder=((11 - lvl)*5)/100;
+    return(Math.random()<=caughtUnder)
 }

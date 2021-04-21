@@ -11,12 +11,14 @@ body{
     background-color: black;
     font-family:TextBody;
     font-size: 16px;
+    min-width: 775px;
 }
 .title{
     text-align: center;
     color: cornsilk;
     font-family: Title;
-    font-size: 50px;
+    font-size: 70px;
+    margin: 50px;
 }
 .text{
     color: white;
@@ -29,4 +31,30 @@ body{
     margin: 50px;
     padding: 10px;
     vertical-align: bottom;
+}
+.awardCss{
+    margin: 70px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.img1{
+    order: 1;
+}
+.img2{
+    order: 2;
+}
+.img3{
+    order: 3;
+}
+.img4{
+    order: 4;
+}
+.img5{
+    order: 5;
+}
+.img6{
+    order: 6;
 }

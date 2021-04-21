@@ -12,6 +12,7 @@ body{
     color: white;
     font-family:TextBody;
     font-size: 16px;
+    min-width: 775px;
 }
 .title{
     text-align: center;

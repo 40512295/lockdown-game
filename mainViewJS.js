@@ -39,9 +39,9 @@ function loadDataBeginning(){
     //Money 
     document.getElementById("amountMoneyTotal").innerHTML = "Total : "+ jsonData['userStats']['stats']['money'] +"$";
     //resetColorFoodPlan
-    document.getElementById("foodPlanCheap").style.backgroundColor = "#033860";
-    document.getElementById("foodPlanMedium").style.backgroundColor = "#033860";
-    document.getElementById("foodPlanExpensive").style.backgroundColor = "#033860";
+    document.getElementById("foodPlanCheap").style.backgroundColor = "#087ca7";
+    document.getElementById("foodPlanMedium").style.backgroundColor = "#087ca7";
+    document.getElementById("foodPlanExpensive").style.backgroundColor = "#087ca7";
 
     switch(jsonData['userStats']['stats']['selectedPlan']){
         case "cheap":
@@ -230,9 +230,22 @@ function basicActivity(id){
         jsonData["userStats"]["stats"]["mental"]=100;
     }
     
+    
+    if(id=="outside"){
+        jsonData = checkNotCaught(jsonData);
+    }
     saveJSON(jsonData);
     window.location.href="./dayRecapView.html";
 }
+function checkNotCaught(jsonData){
+    var caughtUnder=((11 - jsonData["userStats"]["stats"]["abilityLvl"]["stealth"])*5)/100;
+    if(Math.random()<=caughtUnder){
+        jsonData["userStats"]["recapStats"]["refAction"] = -8;
+    }
+    return jsonData;
+}
+
+
 function gotoAbilityView(key){
     var jsonData = loadJSON();
     jsonData['userStats']['refView']=key;

@@ -11,6 +11,7 @@ body{
     background-color: black;
     font-family:TextBody;
     font-size: 12px;
+    min-width: 775px;
 }
 .title{
     text-align: center;
@@ -45,7 +46,7 @@ body{
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    align-items: stretch;
+    align-items: center;
 }
 
 .centerViewMainAbilityBox{

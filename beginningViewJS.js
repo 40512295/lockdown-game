@@ -147,7 +147,7 @@ function createJsonCache(){
                     "passive":[
                         {
                             "level":1,
-                            "name":"chances of being caught are reduce by 80% ",
+                            "name":"chances of being caught stealing or going outside are decreased",
                             "refName":"stealth_1"
                         }
                     ]
@@ -217,10 +217,10 @@ function createJsonCache(){
                     "mental":-5
                 },
                 "expensive":{         
-                    "money":-20,
+                    "money":-25,
                     "hygiene":4,
-                    "energy":16,
-                    "mental":15
+                    "energy":12,
+                    "mental":-1
                 }
             }
         }
@@ -230,12 +230,39 @@ function createJsonCache(){
         "computer":false,
         "taichi":false,
         "stealth":false,
-        "worker":false
+        "worker":false,
+        "endLockdown":false
     }; 
     var fileString = JSON.stringify(file);
     var awardfileString = JSON.stringify(awardFile);
     localStorage.setItem('cookieLOCKDOWNGAME',fileString);
-    localStorage.setItem('awardLOCKDOWNGAME',awardfileString);
+    var cookieAward = localStorage.getItem('awardLOCKDOWNGAME');
+    if(cookieAward==null){
+        console.log("non existant");
+        localStorage.setItem('awardLOCKDOWNGAME',awardfileString);
+    }
+    else{
+        var jsonAward=JSON.parse(localStorage.getItem('awardLOCKDOWNGAME'));
+        console.log(jsonAward);
+        if(jsonAward["social"]==true){
+            document.getElementById("award-social").src="./image/award-social.png";
+        }
+        if(jsonAward["computer"]==true){
+            document.getElementById("award-computer").src="./image/award-computer.png";
+        }
+        if(jsonAward["taichi"]==true){
+            document.getElementById("award-taichi").src="./image/award-taichi.png";
+        }
+        if(jsonAward["stealth"]==true){
+            document.getElementById("award-stealth").src="./image/award-stealth.png";
+        }
+        if(jsonAward["worker"]==true){
+            document.getElementById("award-worker").src="./image/award-worker.png";
+        }
+        if(jsonAward["endLockdown"]==true){
+            document.getElementById("award-worker").src="./image/award-end.png";
+        }
+    }
     document.getElementById("button").style.visibility = "visible";
     
     
