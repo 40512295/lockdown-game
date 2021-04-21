@@ -13,6 +13,10 @@ body{
     font-size: 16px;
     min-width: 775px;
 }
+button{
+    font-family:TextBody;
+    width: 20%;
+}
 .title{
     text-align: center;
     color: cornsilk;
@@ -31,6 +35,9 @@ body{
     margin: 50px;
     padding: 10px;
     vertical-align: bottom;
+}
+.buttonCss:hover{
+    background-color: #634a7c;
 }
 .awardCss{
     margin: 70px;

@@ -11,36 +11,36 @@
         <div class="centerViewMain">
             <div class="centerViewMainAbilityBox">
                 <h3>Ability</h3>
-                <div onclick="gotoAbilityView('social')" id="socialInteractionAbility" class="innerAbilityBox">
+                <button onclick="gotoAbilityView('social')" id="socialInteractionAbility" class="innerAbilityBox">
                     <h4>Social Interaction</h4>
                     <div class="progressBarBackground" id="socialProgress">
                         <div class="progressBarForeground" id="socialBar"></div>
                     </div>
-                </div>
-                <div onclick="gotoAbilityView('computer')" id="computerScienceAbility" class="innerAbilityBox">
+                </button>
+                <button onclick="gotoAbilityView('computer')" id="computerScienceAbility" class="innerAbilityBox">
                     <h4>Computer Science</h4>
                     <div class="progressBarBackground" id="computerProgress">
                         <div class="progressBarForeground" id="computerBar"></div>
                     </div>
-                </div>
-                <div onclick="gotoAbilityView('stealth')" id="StealthAbility" class="innerAbilityBox">
+                </button>
+                <button onclick="gotoAbilityView('stealth')" id="StealthAbility" class="innerAbilityBox">
                     <h4>Stealth</h4>
                     <div class="progressBarBackground" id="stealthProgress">
                         <div class="progressBarForeground" id="stealthBar"></div>
                     </div>
-                </div>
-                <div onclick="gotoAbilityView('taichi')" id="taiChiAbility" class="innerAbilityBox">
+                </button>
+                <button onclick="gotoAbilityView('taichi')" id="taiChiAbility" class="innerAbilityBox">
                     <h4>Tai Chi</h4>
                     <div class="progressBarBackground" id="taichiProgress">
                         <div class="progressBarForeground" id="taichiBar"></div>
                     </div>
-                </div>
-                <div onclick="gotoAbilityView('worker')" id="workerAbility" class="innerAbilityBox">
+                </button>
+                <button onclick="gotoAbilityView('worker')" id="workerAbility" class="innerAbilityBox">
                     <h4>Worker</h4>
                     <div class="progressBarBackground" id="workerProgress">
                         <div class="progressBarForeground" id="workerBar"></div>
                     </div>
-                </div>
+                </button>
             </div>
             <div class="centerViewMainId">
                 <div class="pourcent1Css" id="hygieneChart" style="width: 100px; height: 100px"></div>
@@ -83,34 +83,34 @@
             </div>
         </div>
         <div class="activityLableMainCss">
-            <div class="activityLableMainBoxCss" onclick="basicActivity('outside')">
+            <button class="activityLableMainBoxCss" onclick="basicActivity('outside')">
                 <h3><u>Go out</u></h3>
                 <p id="goOutMoney">Money : 1000$</p>
                 <p id="goOutMentHealth">Mental Health : +100</p>
                 <p id="goOutHygiene">Hygiene : -10</p>
                 <p id="goOutEnergy">Energy : -25</p>
-            </div>
-            <div class="activityLableMainBoxCss" onclick="basicActivity('workout')">
+            </button>
+            <button class="activityLableMainBoxCss" onclick="basicActivity('workout')">
                 <h3><u>Work out</u></h3>
                 <p id="workMoney">Money : -50$</p>
                 <p id="workMentHealth">Mental Health : +100</p>
                 <p id="workHygiene">Hygiene : -10</p>
                 <p id="workEnergy">Energy : -50</p>
-            </div>
-            <div class="activityLableMainBoxCss" onclick="basicActivity('shower')"> 
+            </button>
+            <button class="activityLableMainBoxCss" onclick="basicActivity('shower')"> 
                 <h3><u>Shower</u></h3>
                 <p id="showerMoney">Money : -50$</p>
                 <p id="showerMentHealth">Mental Health : 0</p>
                 <p id="showerHygiene">Hygiene : +100</p>
                 <p id="showerEnergy">Energy : +15</p>
-            </div>
-            <div class="activityLableMainBoxCss" onclick="basicActivity('watch')">
+            </button>
+            <button class="activityLableMainBoxCss" onclick="basicActivity('watch')">
                 <h3><u>Watch tv</u></h3>
                 <p id="watchMoney">Money : 0$</p>
                 <p id="watchMentHealth">Mental Health : -5</p>
                 <p id="watchHygiene">Hygiene : -5</p>
                 <p id="watchEnergy">Energy : 0</p>
-            </div>
+            </button>
         </div>
         
 

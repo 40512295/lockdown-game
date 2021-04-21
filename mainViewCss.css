@@ -20,6 +20,10 @@ body{
     font-size: 50px;
 }
 
+button{
+    font-family:TextBody;
+}
+
 .activityLableMainBoxCss h3{
     text-align: center;
 }
@@ -59,6 +63,7 @@ body{
 
 .innerAbilityBox{
     background-color: #087ca7;
+    width: 100%;
 }
 .innerAbilityBox:hover{
     background-color: #4f96b0;
