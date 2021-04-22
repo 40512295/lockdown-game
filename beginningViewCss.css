@@ -9,6 +9,7 @@
 body{
     text-align:center;
     background-color: black;
+    color: white;
     font-family:TextBody;
     font-size: 16px;
     min-width: 775px;
@@ -64,4 +65,7 @@ button{
 }
 .img6{
     order: 6;
+}
+.creditCss{
+    text-align: justify;
 }

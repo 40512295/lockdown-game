@@ -45,12 +45,12 @@ function loadDataBeginning(){
         case -5:
             //dead mental
             statmentP = "The lockdown drives you crazy and you decide to jump off the top of your building. ";
-            urlImage = "./image/skull.jpg";
+            urlImage = "./image/skull.png";
         break;
         case -4:
             //dead energy
             statmentP = "You don't have enough energy and you will die of fatigue. ";
-            urlImage = "./image/skull.jpg";
+            urlImage = "./image/skull.png";
         break;
         case -3:
             //dead hygiene
@@ -60,12 +60,12 @@ function loadDataBeginning(){
         case -2:
             //dead money
             statmentP = "You don't have enough money to buy food. You die ";
-            urlImage = "./image/skull.jpg";
+            urlImage = "./image/skull.png";
         break;
         case -1:
             //dead
             statmentP = "You died";
-            urlImage = "./image/skull.jpg";
+            urlImage = "./image/skull.png";
         break;
         case 0:
             //workout
@@ -80,7 +80,7 @@ function loadDataBeginning(){
         case 2:
             //tv
             statmentP = "Again and again in front of your TV. You are starting to get bored of the lockdown. ";
-            urlImage = "./image/tv.jpg";
+            urlImage = "./image/tv.png";
         break;
         case 3:
             //go out
@@ -123,12 +123,12 @@ function loadDataBeginning(){
         case 9:
             //stealth : steal
             statmentP = "You steal your neighbor and earn money. Luckily the police didn't catch you.";
-            urlImage = "./image/steal.jpg";
+            urlImage = "./image/steal.png";
         break;
         case 10:
             //stealth : win leave country
             statmentP = "You are fed up with your country and you decide to run away. In your country, there is no virus or dictatorship. It is paradise.";
-            urlImage = "./image/plane.jpg";
+            urlImage = "./image/plane.png";
             jsonData["userStats"]["recapStats"]["refAction"] = -110;
             newAward("stealth")
         break;
@@ -211,3 +211,9 @@ function newAward(id){
     localStorage.setItem('awardLOCKDOWNGAME',JSON.stringify(jsonAward));
 }
 
+function test(id){
+    var jsonData=loadJSON();
+    jsonData["userStats"]["recapStats"]["refAction"]=id;
+    saveJSON(jsonData);
+    loadDataBeginning();
+}
