@@ -77,7 +77,6 @@ button{
     flex-wrap: nowrap;
     justify-content: space-evenly;
     align-items: center;
-    border: 1px solid white;
 }
 .pourcent1Css{
     order: 1;
@@ -172,4 +171,5 @@ button{
     height: 30px;
     background-color: green;
 }
+
 

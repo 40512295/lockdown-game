@@ -89,7 +89,19 @@ button{
 .nameOfAbilityCss{
     color: white;
 }
-
+.returnButtonCss{
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    width: 10%;
+    font-family:TextBody;
+    color: white;
+    background-color: #492170;
+    min-width: 72px;
+}
+.returnButtonCss:hover{
+    background-color: #634a7c;
+}
 
 .passiveCss{
     order: 3;
