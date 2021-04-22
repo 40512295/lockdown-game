@@ -260,7 +260,7 @@ function createJsonCache(){
             document.getElementById("award-worker").src="./image/award-worker.png";
         }
         if(jsonAward["endLockdown"]==true){
-            document.getElementById("award-worker").src="./image/award-end.png";
+            document.getElementById("award-end").src="./image/award-end.png";
         }
     }
     document.getElementById("button").style.visibility = "visible";
