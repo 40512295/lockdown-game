@@ -14,12 +14,12 @@ function loadDataBeginning(){
     if(checkBellowZero(jsonData)){
         //dead
         console.log("bellow zero");
-        jsonData["userStats"]["recapStats"]["refAction"] = -100;
+        jsonData = returnWhenBellowZero(jsonData);
     }
     else if(jsonData["userStats"]["stats"]["duration"]>=182){
         //win end of confinment
         console.log("end confi");
-        jsonData = returnWhenBellowZero(jsonData);
+        jsonData["userStats"]["recapStats"]["refAction"] = -100;
     }
     switch(jsonData["userStats"]["recapStats"]["refAction"]){
         case -100:
