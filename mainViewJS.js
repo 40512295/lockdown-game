@@ -265,7 +265,7 @@ function getEnergy(){
     return loadJSON()["userStats"]["stats"]["energy"] ;
 }
 
-function drawPieChart(id,name,pourcentChange,couleur){
+function drawPieChart(id,name,pourcentChange,couleur){//https://developers.google.com/chart/interactive/docs/gallery/piechart
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
